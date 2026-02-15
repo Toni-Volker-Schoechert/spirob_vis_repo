@@ -1,0 +1,14 @@
+# Core visualization
+viser==1.0.21
+
+# URDF parsing + FK
+yourdfpy==0.0.60
+numpy==2.4.2
+
+# REST API
+fastapi>=0.110
+uvicorn>=0.27
+pydantic>=2.0
+
+# Optional: demo client
+requests>=2.31

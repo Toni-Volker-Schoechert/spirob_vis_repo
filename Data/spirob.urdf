@@ -1,0 +1,462 @@
+<?xml version="1.0"?>
+<robot name="spirob">
+  <link name="base_link"/>
+  <link name="seg_0">
+    <inertial>
+      <origin xyz="0 0 0.00281170643" rpy="0 0 0"/>
+      <mass value="0.000618575415"/>
+      <inertia ixx="6.78488425e-09" ixy="0" ixz="0" iyy="6.78488425e-09" iyz="0" izz="1.03095902e-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.00281170643" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.00562341286"/>
+      </geometry>
+      <material name="mat_0">
+        <color rgba="0.6 0.75 0.95 0.3"/>
+      </material>
+    </visual>
+  </link>
+  <link name="seg_1">
+    <inertial>
+      <origin xyz="0 0 0.00307522953" rpy="0 0 0"/>
+      <mass value="0.000809310813"/>
+      <inertia ixx="1.06189177e-08" ixy="0" ixz="0" iyy="1.06189177e-08" iyz="0" izz="1.61353807e-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.00307522953" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0109372355 0.0109372355 0.00615045907"/>
+      </geometry>
+      <material name="mat_1">
+        <color rgba="0.2 0.7 0.2 0.3"/>
+      </material>
+    </visual>
+  </link>
+  <link name="seg_2">
+    <inertial>
+      <origin xyz="0 0 0.00336345096" rpy="0 0 0"/>
+      <mass value="0.00105885875"/>
+      <inertia ixx="1.66195044e-08" ixy="0" ixz="0" iyy="1.66195044e-08" iyz="0" izz="2.52532356e-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.00336345096" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.011962312 0.011962312 0.00672690191"/>
+      </geometry>
+      <material name="mat_2">
+        <color rgba="0.6 0.75 0.95 0.3"/>
+      </material>
+    </visual>
+  </link>
+  <link name="seg_3">
+    <inertial>
+      <origin xyz="0 0 0.00367868551" rpy="0 0 0"/>
+      <mass value="0.00138535386"/>
+      <inertia ixx="2.601093e-08" ixy="0" ixz="0" iyy="2.601093e-08" iyz="0" izz="3.95234496e-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.00367868551" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0130834623 0.0130834623 0.00735737102"/>
+      </geometry>
+      <material name="mat_3">
+        <color rgba="0.2 0.7 0.2 0.3"/>
+      </material>
+    </visual>
+  </link>
+  <link name="seg_4">
+    <inertial>
+      <origin xyz="0 0 0.00402346497" rpy="0 0 0"/>
+      <mass value="0.0018125225"/>
+      <inertia ixx="4.07093055e-08" ixy="0" ixz="0" iyy="4.07093055e-08" iyz="0" izz="6.18575415e-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.00402346497" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0143096908 0.0143096908 0.00804692994"/>
+      </geometry>
+      <material name="mat_4">
+        <color rgba="0.6 0.75 0.95 0.3"/>
+      </material>
+    </visual>
+  </link>
+  <link name="seg_5">
+    <inertial>
+      <origin xyz="0 0 0.00440055838" rpy="0 0 0"/>
+      <mass value="0.00237140698"/>
+      <inertia ixx="6.37135063e-08" ixy="0" ixz="0" iyy="6.37135063e-08" iyz="0" izz="9.68122844e-08"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.00440055838" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0156508458 0.0156508458 0.00880111676"/>
+      </geometry>
+      <material name="mat_5">
+        <color rgba="0.2 0.7 0.2 0.3"/>
+      </material>
+    </visual>
+  </link>
+  <link name="seg_6">
+    <inertial>
+      <origin xyz="0 0 0.00481299432" rpy="0 0 0"/>
+      <mass value="0.00310262138"/>
+      <inertia ixx="9.97170262e-08" ixy="0" ixz="0" iyy="9.97170262e-08" iyz="0" izz="1.51519413e-07"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.00481299432" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0171176986 0.0171176986 0.00962598865"/>
+      </geometry>
+      <material name="mat_6">
+        <color rgba="0.6 0.75 0.95 0.3"/>
+      </material>
+    </visual>
+  </link>
+  <link name="seg_7">
+    <inertial>
+      <origin xyz="0 0 0.00526408523" rpy="0 0 0"/>
+      <mass value="0.00405930298"/>
+      <inertia ixx="1.5606558e-07" ixy="0" ixz="0" iyy="1.5606558e-07" iyz="0" izz="2.37140698e-07"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.00526408523" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.01872203 0.01872203 0.0105281705"/>
+      </geometry>
+      <material name="mat_7">
+        <color rgba="0.2 0.7 0.2 0.3"/>
+      </material>
+    </visual>
+  </link>
+  <link name="seg_8">
+    <inertial>
+      <origin xyz="0 0 0.00575745397" rpy="0 0 0"/>
+      <mass value="0.00531097376"/>
+      <inertia ixx="2.44255833e-07" ixy="0" ixz="0" iyy="2.44255833e-07" iyz="0" izz="3.71145249e-07"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.00575745397" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0204767251 0.0204767251 0.0115149079"/>
+      </geometry>
+      <material name="mat_8">
+        <color rgba="0.6 0.75 0.95 0.3"/>
+      </material>
+    </visual>
+  </link>
+  <link name="seg_9">
+    <inertial>
+      <origin xyz="0 0 0.00629706298" rpy="0 0 0"/>
+      <mass value="0.0069485925"/>
+      <inertia ixx="3.82281038e-07" ixy="0" ixz="0" iyy="3.82281038e-07" iyz="0" izz="5.80873706e-07"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.00629706298" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0223958764 0.0223958764 0.012594126"/>
+      </geometry>
+      <material name="mat_9">
+        <color rgba="0.2 0.7 0.2 0.3"/>
+      </material>
+    </visual>
+  </link>
+  <link name="seg_10">
+    <inertial>
+      <origin xyz="0 0 0.00688724606" rpy="0 0 0"/>
+      <mass value="0.00909116481"/>
+      <inertia ixx="5.98302157e-07" ixy="0" ixz="0" iyy="5.98302157e-07" iyz="0" izz="9.09116481e-07"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.00688724606" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0244948974 0.0244948974 0.0137744921"/>
+      </geometry>
+      <material name="mat_10">
+        <color rgba="0.6 0.75 0.95 0.3"/>
+      </material>
+    </visual>
+  </link>
+  <link name="seg_11">
+    <inertial>
+      <origin xyz="0 0 0.0075327432" rpy="0 0 0"/>
+      <mass value="0.0118943912"/>
+      <inertia ixx="9.36393481e-07" ixy="0" ixz="0" iyy="9.36393481e-07" iyz="0" izz="1.42284419e-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.0075327432" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0267906461 0.0267906461 0.0150654864"/>
+      </geometry>
+      <material name="mat_11">
+        <color rgba="0.2 0.7 0.2 0.3"/>
+      </material>
+    </visual>
+  </link>
+  <link name="seg_12">
+    <inertial>
+      <origin xyz="0 0 0.00823873862" rpy="0 0 0"/>
+      <mass value="0.0155619819"/>
+      <inertia ixx="1.465535e-06" ixy="0" ixz="0" iyy="1.465535e-06" iyz="0" izz="2.22687149e-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.00823873862" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0293015605 0.0293015605 0.0164774772"/>
+      </geometry>
+      <material name="mat_12">
+        <color rgba="0.6 0.75 0.95 0.3"/>
+      </material>
+    </visual>
+  </link>
+  <link name="seg_13">
+    <inertial>
+      <origin xyz="0 0 0.00901090243" rpy="0 0 0"/>
+      <mass value="0.0203604604"/>
+      <inertia ixx="2.29368623e-06" ixy="0" ixz="0" iyy="2.29368623e-06" iyz="0" izz="3.48524224e-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.00901090243" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0320478067 0.0320478067 0.0180218049"/>
+      </geometry>
+      <material name="mat_13">
+        <color rgba="0.2 0.7 0.2 0.3"/>
+      </material>
+    </visual>
+  </link>
+  <link name="seg_14">
+    <inertial>
+      <origin xyz="0 0 0.00985543617" rpy="0 0 0"/>
+      <mass value="0.0266385316"/>
+      <inertia ixx="3.58981294e-06" ixy="0" ixz="0" iyy="3.58981294e-06" iyz="0" izz="5.45469888e-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.00985543617" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0350514409 0.0350514409 0.0197108723"/>
+      </geometry>
+      <material name="mat_14">
+        <color rgba="0.6 0.75 0.95 0.3"/>
+      </material>
+    </visual>
+  </link>
+  <link name="seg_15">
+    <inertial>
+      <origin xyz="0 0 0.0107791226" rpy="0 0 0"/>
+      <mass value="0.0348524224"/>
+      <inertia ixx="5.61836088e-06" ixy="0" ixz="0" iyy="5.61836088e-06" iyz="0" izz="8.53706511e-06"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.0107791226" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0383365863 0.0383365863 0.0215582452"/>
+      </geometry>
+      <material name="mat_15">
+        <color rgba="0.2 0.7 0.2 0.3"/>
+      </material>
+    </visual>
+  </link>
+  <link name="seg_16">
+    <inertial>
+      <origin xyz="0 0 0.0117893802" rpy="0 0 0"/>
+      <mass value="0.0455990354"/>
+      <inertia ixx="8.79320998e-06" ixy="0" ixz="0" iyy="8.79320998e-06" iyz="0" izz="1.3361229e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.0117893802" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0419296271 0.0419296271 0.0235787605"/>
+      </geometry>
+      <material name="mat_16">
+        <color rgba="0.6 0.75 0.95 0.3"/>
+      </material>
+    </visual>
+  </link>
+  <link name="seg_17">
+    <inertial>
+      <origin xyz="0 0 0.0128943228" rpy="0 0 0"/>
+      <mass value="0.0596593261"/>
+      <inertia ixx="1.37621174e-05" ixy="0" ixz="0" iyy="1.37621174e-05" iyz="0" izz="2.09114534e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.0128943228" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0458594205 0.0458594205 0.0257886455"/>
+      </geometry>
+      <material name="mat_17">
+        <color rgba="0.2 0.7 0.2 0.3"/>
+      </material>
+    </visual>
+  </link>
+  <link name="seg_18">
+    <inertial>
+      <origin xyz="0 0 0.0141028244" rpy="0 0 0"/>
+      <mass value="0.0780550545"/>
+      <inertia ixx="2.15388777e-05" ixy="0" ixz="0" iyy="2.15388777e-05" iyz="0" izz="3.27281933e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.0141028244" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0501575281 0.0501575281 0.0282056489"/>
+      </geometry>
+      <material name="mat_18">
+        <color rgba="0.6 0.75 0.95 0.3"/>
+      </material>
+    </visual>
+  </link>
+  <link name="seg_19">
+    <inertial>
+      <origin xyz="0 0 0.0154245912" rpy="0 0 0"/>
+      <mass value="0.102123036"/>
+      <inertia ixx="3.37101653e-05" ixy="0" ixz="0" iyy="3.37101653e-05" iyz="0" izz="5.12223907e-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.0154245912" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.0548584696 0.0548584696 0.0308491824"/>
+      </geometry>
+      <material name="mat_19">
+        <color rgba="0.2 0.7 0.2 0.3"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="fixed_root" type="fixed">
+    <parent link="base_link"/>
+    <child link="seg_19"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <joint name="j_18" type="revolute">
+    <parent link="seg_19"/>
+    <child link="seg_18"/>
+    <origin xyz="0 0 0.0308491824" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="j_17" type="revolute">
+    <parent link="seg_18"/>
+    <child link="seg_17"/>
+    <origin xyz="0 0 0.0282056489" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="j_16" type="revolute">
+    <parent link="seg_17"/>
+    <child link="seg_16"/>
+    <origin xyz="0 0 0.0257886455" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="j_15" type="revolute">
+    <parent link="seg_16"/>
+    <child link="seg_15"/>
+    <origin xyz="0 0 0.0235787605" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="j_14" type="revolute">
+    <parent link="seg_15"/>
+    <child link="seg_14"/>
+    <origin xyz="0 0 0.0215582452" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="j_13" type="revolute">
+    <parent link="seg_14"/>
+    <child link="seg_13"/>
+    <origin xyz="0 0 0.0197108723" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="j_12" type="revolute">
+    <parent link="seg_13"/>
+    <child link="seg_12"/>
+    <origin xyz="0 0 0.0180218049" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="j_11" type="revolute">
+    <parent link="seg_12"/>
+    <child link="seg_11"/>
+    <origin xyz="0 0 0.0164774772" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="j_10" type="revolute">
+    <parent link="seg_11"/>
+    <child link="seg_10"/>
+    <origin xyz="0 0 0.0150654864" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="j_9" type="revolute">
+    <parent link="seg_10"/>
+    <child link="seg_9"/>
+    <origin xyz="0 0 0.0137744921" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="j_8" type="revolute">
+    <parent link="seg_9"/>
+    <child link="seg_8"/>
+    <origin xyz="0 0 0.012594126" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="j_7" type="revolute">
+    <parent link="seg_8"/>
+    <child link="seg_7"/>
+    <origin xyz="0 0 0.0115149079" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="j_6" type="revolute">
+    <parent link="seg_7"/>
+    <child link="seg_6"/>
+    <origin xyz="0 0 0.0105281705" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="j_5" type="revolute">
+    <parent link="seg_6"/>
+    <child link="seg_5"/>
+    <origin xyz="0 0 0.00962598865" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="j_4" type="revolute">
+    <parent link="seg_5"/>
+    <child link="seg_4"/>
+    <origin xyz="0 0 0.00880111676" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="j_3" type="revolute">
+    <parent link="seg_4"/>
+    <child link="seg_3"/>
+    <origin xyz="0 0 0.00804692994" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="j_2" type="revolute">
+    <parent link="seg_3"/>
+    <child link="seg_2"/>
+    <origin xyz="0 0 0.00735737102" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="j_1" type="revolute">
+    <parent link="seg_2"/>
+    <child link="seg_1"/>
+    <origin xyz="0 0 0.00672690191" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0"/>
+  </joint>
+  <joint name="j_0" type="revolute">
+    <parent link="seg_1"/>
+    <child link="seg_0"/>
+    <origin xyz="0 0 0.00615045907" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0"/>
+  </joint>
+</robot>
