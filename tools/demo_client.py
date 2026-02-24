@@ -33,7 +33,7 @@ import requests
 
 def stream_state_frames(
     base_url: str,
-    duration_s: float = 10.0,
+    duration_s: float = 20.0,
     hz: float = 50.0,
     unit: str = "deg",
 ) -> None:
@@ -68,10 +68,10 @@ def stream_state_frames(
             break
 
         # Example signal (adjust joint names for your robot):
-        j0 = 15.0 * math.sin(2.0 * math.pi * 0.3 * t)  # +/-15 deg
-        j1 = 10.0 * math.sin(2.0 * math.pi * 0.5 * t + 0.7)
+        j10 = 29.0 * math.sin(2.0 * math.pi * 0.3 * t)  # +/-15 deg
+        j15 = -29.0 * math.sin(2.0 * math.pi * 0.5 * t + 0.7)
 
-        payload = {"unit": unit, "joints": {"j_0": j0, "j_1": j1}}
+        payload = {"unit": unit, "joints": {"j_10": j10, "j_15": j15}}
         r = requests.post(url, json=payload, timeout=0.5)
         if r.status_code != 200:
             raise RuntimeError(f"Server error {r.status_code}: {r.text}")
