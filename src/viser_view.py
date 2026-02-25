@@ -9,7 +9,7 @@ Description:
       - Create the Viser server.
       - Create reference visuals (grid + base frame) and GUI toggles.
       - Create optional per-link debug frames (toggle, default off).
-      - Create robot visuals (currently URDF box visuals).
+      - Create robot visuals
       - Update poses every frame.
 
     Notes
@@ -25,6 +25,7 @@ from typing import Dict, List, Optional
 import viser
 import viser.transforms as vt
 import numpy as np
+import trimesh
 
 
 class ViserView:
@@ -50,6 +51,7 @@ class ViserView:
 
         # Robot visuals (per link: list of handles)
         self.link_visuals: Dict[str, List[viser.SceneNodeHandle]] = {}
+        self._mesh_cache: Dict[str, trimesh.Trimesh] = {}
 
         # GUI checkboxes (stored so we can query their state if needed)
         self._cb_grid = None
@@ -136,6 +138,22 @@ class ViserView:
         # Apply initial values
         _apply_visibility()
 
+    def _load_mesh_cached(self, path: str) -> trimesh.Trimesh:
+        if path in self._mesh_cache:
+            return self._mesh_cache[path]
+
+        mesh = trimesh.load_mesh(path)
+        # Manche Formate liefern Scene -> zu einem Mesh zusammenfassen
+        if isinstance(mesh, trimesh.Scene):
+            parts = mesh.dump()
+            mesh = trimesh.util.concatenate(tuple(parts))
+
+        if not isinstance(mesh, trimesh.Trimesh):
+            raise RuntimeError(f"Unsupported mesh type from {path}: {type(mesh)}")
+
+        self._mesh_cache[path] = mesh
+        return mesh
+
     def create_link_frames(self, link_names: List[str]) -> None:
         """Create small coordinate frames on every link (debug).
 
@@ -160,39 +178,65 @@ class ViserView:
             self.link_frames[name] = fr
 
     def create_link_visuals(self, link_visuals: Dict[str, List[dict]]) -> None:
-        """Create robot visuals (currently URDF box visuals).
-
-        Parameters
-        ----------
-        link_visuals:
-            Mapping link_name -> list of visuals, as returned by
-            URDFModel.extract_visuals().
-
-        Notes
-        -----
-        Each visual dict must contain:
-          - type: "box"
-          - size: (sx, sy, sz) (full lengths)
-          - origin_T: 4x4 transform of the visual in the link frame
-        """
         self.link_visuals = {}
         for link_name, visuals in link_visuals.items():
             self.link_visuals[link_name] = []
             for k, v in enumerate(visuals):
-                if v.get("type") != "box":
-                    continue
-                sx, sy, sz = v["size"]
+                vtype = v.get("type")
+                rgba = v.get("rgba", None)
 
-                h = self.server.scene.add_box(
-                    f"{self._robot_root}/visual/{link_name}/{k}",
-                    dimensions=(float(sx), float(sy), float(sz)),
-                    position=(0.0, 0.0, 0.0),
-                    wxyz=(1.0, 0.0, 0.0, 0.0),
-                )
-                # Store origin transform on the handle.
-                h._origin_T = v["origin_T"]
-                h.visible = bool(self.cfg.show_robot_visuals)
-                self.link_visuals[link_name].append(h)
+                if vtype == "box":
+                    sx, sy, sz = v["size"]
+                    kwargs = {}
+                    if rgba is not None:
+                        r, g, b, a = rgba
+                        kwargs["color"] = (int(r * 255), int(g * 255), int(b * 255))
+                        kwargs["opacity"] = float(a)
+
+                    h = self.server.scene.add_box(
+                        f"{self._robot_root}/visual/{link_name}/{k}",
+                        dimensions=(float(sx), float(sy), float(sz)),
+                        position=(0.0, 0.0, 0.0),
+                        wxyz=(1.0, 0.0, 0.0, 0.0),
+                        **kwargs,
+                    )
+                    h._origin_T = v["origin_T"]
+                    h.visible = bool(self.cfg.show_robot_visuals)
+                    self.link_visuals[link_name].append(h)
+                    continue
+
+                if vtype == "mesh":
+                    path = v["path"]
+                    scale = v.get("scale", (1.0, 1.0, 1.0))
+                    mesh = self._load_mesh_cached(path)
+
+                    # Wenn URDF rgba hat -> add_mesh_simple (feste Farbe + opacity)
+                    # Sonst -> add_mesh_trimesh (nutzt ggf. GLB/Material)
+                    if rgba is not None:
+                        r, g, b, a = rgba
+                        h = self.server.scene.add_mesh_simple(
+                            f"{self._robot_root}/visual/{link_name}/{k}",
+                            vertices=mesh.vertices,
+                            faces=mesh.faces,
+                            color=(int(r * 255), int(g * 255), int(b * 255)),
+                            opacity=float(a),
+                            scale=scale,
+                            position=(0.0, 0.0, 0.0),
+                            wxyz=(1.0, 0.0, 0.0, 0.0),
+                        )
+                    else:
+                        h = self.server.scene.add_mesh_trimesh(
+                            name=f"{self._robot_root}/visual/{link_name}/{k}",
+                            mesh=mesh,
+                            scale=scale,
+                            position=(0.0, 0.0, 0.0),
+                            wxyz=(1.0, 0.0, 0.0, 0.0),
+                        )
+
+                    h._origin_T = v["origin_T"]
+                    h.visible = bool(self.cfg.show_robot_visuals)
+                    self.link_visuals[link_name].append(h)
+                    continue
 
     # ---- per-frame updates -------------------------------------------
 

@@ -9,13 +9,16 @@ Description:
       - Load a URDF via `yourdfpy`.
       - Provide link/joint names.
       - Forward kinematics (base -> link transforms).
-      - Extract simple visual geometry (currently URDF box visuals).
+      - Extract real visuals from urdf
       - Parse joint limits from the URDF XML.
 
     This module intentionally contains *no visualization code*.
 """
 
 from __future__ import annotations
+
+import os
+from pathlib import Path
 
 from dataclasses import dataclass
 from typing import Any, Dict, List, Tuple
@@ -77,6 +80,36 @@ def _origin_to_T(origin: Any | None) -> np.ndarray:
     T[:3, 3] = xyz
     return T
 
+def _origin_xml_to_T(origin_el: ET.Element | None) -> np.ndarray:
+    """Convert URDF XML <origin xyz=".." rpy=".."> to 4x4 transform."""
+    xyz = np.array([0.0, 0.0, 0.0], dtype=float)
+    rpy = np.array([0.0, 0.0, 0.0], dtype=float)
+
+    if origin_el is not None:
+        if "xyz" in origin_el.attrib:
+            parts = origin_el.attrib["xyz"].replace(",", " ").split()
+            if len(parts) >= 3:
+                xyz = np.array([float(parts[0]), float(parts[1]), float(parts[2])], dtype=float)
+        if "rpy" in origin_el.attrib:
+            parts = origin_el.attrib["rpy"].replace(",", " ").split()
+            if len(parts) >= 3:
+                rpy = np.array([float(parts[0]), float(parts[1]), float(parts[2])], dtype=float)
+
+    T = np.eye(4)
+    T[:3, :3] = _rpy_to_R(rpy)
+    T[:3, 3] = xyz
+    return T
+
+
+def _parse_rgba(rgba_str: str | None) -> tuple[float, float, float, float] | None:
+    if not rgba_str:
+        return None
+    parts = rgba_str.replace(",", " ").split()
+    if len(parts) < 3:
+        return None
+    r = float(parts[0]); g = float(parts[1]); b = float(parts[2])
+    a = float(parts[3]) if len(parts) >= 4 else 1.0
+    return (r, g, b, a)
 
 @dataclass(frozen=True)
 class BoxVisual:
@@ -100,6 +133,8 @@ class URDFModel:
         self.urdf_path = urdf_path
         self.robot = URDF.load(urdf_path)
         self._joint_limits = self._parse_joint_limits_from_xml(urdf_path)
+        self._urdf_dir = Path(urdf_path).resolve().parent
+        self._xml_root = ET.parse(urdf_path).getroot()
 
     @property
     def link_names(self) -> List[str]:
@@ -172,46 +207,74 @@ class URDFModel:
         self.robot.update_cfg(joint_values)
         return {ln: self.robot.get_transform(frame_to=ln) for ln in self.link_names}
 
+    def _resolve_mesh_path(self, filename: str) -> str:
+        # Handle file:// and package:// in a simple local way.
+        fn = filename.strip()
+        if fn.startswith("file://"):
+            fn = fn[len("file://"):]
+        elif fn.startswith("package://"):
+            fn = fn[len("package://"):]  # treat as relative under URDF folder
+
+        p = Path(fn)
+        if p.is_absolute():
+            return str(p)
+        return str((self._urdf_dir / p).resolve())
+
     def extract_visuals(self) -> Dict[str, List[Dict[str, Any]]]:
-        """Extract URDF visual geometries.
-
-        Currently supported:
-          - <visual><geometry><box size="sx sy sz"/></geometry></visual>
-
-        Returns
-        -------
-        dict
-            Mapping link_name -> list of visual dicts.
-
-            Each visual dict contains:
-              - type: "box"
-              - size: (sx, sy, sz)
-              - origin_T: 4x4 transform of the visual in the link frame
-        """
+        """Extract URDF visuals from XML: box + mesh (+ material rgba)."""
         out: Dict[str, List[Dict[str, Any]]] = {}
 
-        # yourdfpy does not expose a stable `robot.links` attribute across versions;
-        # `link_map` is stable.
-        for link in self.robot.link_map.values():
+        for link_el in self._xml_root.findall("link"):
+            link_name = link_el.attrib.get("name", "")
             visuals: List[Dict[str, Any]] = []
-            link_visuals = getattr(link, "visuals", None)
-            if link_visuals is None:
-                # Some versions use `visual` instead of `visuals`.
-                v_single = getattr(link, "visual", None)
-                link_visuals = [] if v_single is None else [v_single]
 
-            for vis in link_visuals:
-                geom = getattr(vis, "geometry", None)
-                if geom is None:
+            for vis_el in link_el.findall("visual"):
+                origin_T = _origin_xml_to_T(vis_el.find("origin"))
+
+                # material / color
+                rgba = None
+                mat_el = vis_el.find("material")
+                if mat_el is not None:
+                    color_el = mat_el.find("color")
+                    if color_el is not None:
+                        rgba = _parse_rgba(color_el.attrib.get("rgba"))
+
+                geom_el = vis_el.find("geometry")
+                if geom_el is None:
                     continue
-                box = getattr(geom, "box", None)
-                if box is None:
+
+                box_el = geom_el.find("box")
+                if box_el is not None and "size" in box_el.attrib:
+                    parts = box_el.attrib["size"].replace(",", " ").split()
+                    if len(parts) >= 3:
+                        size = (float(parts[0]), float(parts[1]), float(parts[2]))
+                        visuals.append(
+                            {"type": "box", "size": size, "origin_T": origin_T, "rgba": rgba}
+                        )
                     continue
 
-                size = tuple(float(x) for x in box.size)
-                origin_T = _origin_to_T(getattr(vis, "origin", None))
-                visuals.append({"type": "box", "size": size, "origin_T": origin_T})
+                mesh_el = geom_el.find("mesh")
+                if mesh_el is not None:
+                    filename = mesh_el.attrib.get("filename") or mesh_el.attrib.get("url")
+                    if not filename:
+                        continue
+                    scale_attr = mesh_el.attrib.get("scale", "1 1 1").replace(",", " ").split()
+                    if len(scale_attr) >= 3:
+                        scale = (float(scale_attr[0]), float(scale_attr[1]), float(scale_attr[2]))
+                    else:
+                        scale = (1.0, 1.0, 1.0)
 
-            out[getattr(link, "name", "")] = visuals
+                    visuals.append(
+                        {
+                            "type": "mesh",
+                            "path": self._resolve_mesh_path(filename),
+                            "scale": scale,
+                            "origin_T": origin_T,
+                            "rgba": rgba,
+                        }
+                    )
+                    continue
+
+            out[link_name] = visuals
 
         return out
