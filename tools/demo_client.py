@@ -69,9 +69,9 @@ def stream_state_frames(
 
         # Example signal (adjust joint names for your robot):
         j10 = 29.0 * math.sin(2.0 * math.pi * 0.3 * t)  # +/-15 deg
-        j15 = -29.0 * math.sin(2.0 * math.pi * 0.5 * t + 0.7)
+        j5 = -29.0 * math.sin(2.0 * math.pi * 0.5 * t + 0.7)
 
-        payload = {"unit": unit, "joints": {"j_10": j10, "j_15": j15}}
+        payload = {"unit": unit, "joints": {"j_10": j10, "j_5": j5}}
         r = requests.post(url, json=payload, timeout=0.5)
         if r.status_code != 200:
             raise RuntimeError(f"Server error {r.status_code}: {r.text}")
@@ -116,9 +116,9 @@ def send_trajectory_and_play(
     frames: List[Dict[str, float]] = []
     for i in range(n):
         t = i * dt
-        j0 = 15.0 * math.sin(2.0 * math.pi * 0.3 * t)
-        j1 = 10.0 * math.sin(2.0 * math.pi * 0.5 * t + 0.7)
-        frames.append({"j_0": j0, "j_1": j1})
+        j10 = 15.0 * math.sin(2.0 * math.pi * 0.3 * t)
+        j5 = 10.0 * math.sin(2.0 * math.pi * 0.5 * t + 0.7)
+        frames.append({"j_10": j10, "j_5": j5})
 
     payload = {"unit": unit, "dt": dt, "frames": frames, "loop": False, "start": True}
     r = requests.post(url, json=payload, timeout=10.0)

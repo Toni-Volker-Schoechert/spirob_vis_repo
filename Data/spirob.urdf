@@ -1,36 +1,41 @@
 <?xml version='1.0' encoding='utf-8'?>
 <robot name="spirob">
   <link name="base_link" />
+
   <link name="seg_0">
     <inertial>
-      <origin xyz="0 0 0.00481299432" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <mass value="0.00310262138" />
       <inertia ixx="9.97170262e-08" ixy="0" ixz="0" iyy="9.97170262e-08" iyz="0" izz="1.51519413e-07" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0.00481299432" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="meshes/seg_0.stl" scale="0.001 0.001 0.001" /></geometry>
+        <mesh filename="meshes/seg_0.stl" scale="0.001 0.001 0.001" />
+      </geometry>
       <material name="mat_6">
-        <color rgba="0.6 0.75 0.95 0.3" />
+        <color rgba="1 0 0 1.0" />
       </material>
     </visual>
   </link>
+
   <link name="seg_1">
     <inertial>
-      <origin xyz="0 0 0.00526408523" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <mass value="0.00405930298" />
       <inertia ixx="1.5606558e-07" ixy="0" ixz="0" iyy="1.5606558e-07" iyz="0" izz="2.37140698e-07" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0.00526408523" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="meshes/seg_1.stl" scale="0.001 0.001 0.001" /></geometry>
+        <mesh filename="meshes/seg_1.stl" scale="0.001 0.001 0.001" />
+      </geometry>
       <material name="mat_7">
-        <color rgba="0.2 0.7 0.2 0.3" />
+        <color rgba="0 0 1 1.0" />
       </material>
     </visual>
   </link>
+
   <link name="seg_2">
     <inertial>
       <origin xyz="0 0 0.00575745397" rpy="0 0 0" />
@@ -38,14 +43,16 @@
       <inertia ixx="2.44255833e-07" ixy="0" ixz="0" iyy="2.44255833e-07" iyz="0" izz="3.71145249e-07" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0.00575745397" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="meshes/seg_2.stl" scale="0.001 0.001 0.001" /></geometry>
+        <mesh filename="meshes/seg_2.stl" scale="0.001 0.001 0.001" />
+      </geometry>
       <material name="mat_8">
-        <color rgba="0.6 0.75 0.95 0.3" />
+        <color rgba="1 0 0 1.0" />
       </material>
     </visual>
   </link>
+
   <link name="seg_3">
     <inertial>
       <origin xyz="0 0 0.00629706298" rpy="0 0 0" />
@@ -53,14 +60,16 @@
       <inertia ixx="3.82281038e-07" ixy="0" ixz="0" iyy="3.82281038e-07" iyz="0" izz="5.80873706e-07" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0.00629706298" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="meshes/seg_3.stl" scale="0.001 0.001 0.001" /></geometry>
+        <mesh filename="meshes/seg_3.stl" scale="0.001 0.001 0.001" />
+      </geometry>
       <material name="mat_9">
-        <color rgba="0.2 0.7 0.2 0.3" />
+        <color rgba="0 0 1 1.0" />
       </material>
     </visual>
   </link>
+
   <link name="seg_4">
     <inertial>
       <origin xyz="0 0 0.00688724606" rpy="0 0 0" />
@@ -68,14 +77,16 @@
       <inertia ixx="5.98302157e-07" ixy="0" ixz="0" iyy="5.98302157e-07" iyz="0" izz="9.09116481e-07" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0.00688724606" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="meshes/seg_4.stl" scale="0.001 0.001 0.001" /></geometry>
+        <mesh filename="meshes/seg_4.stl" scale="0.001 0.001 0.001" />
+      </geometry>
       <material name="mat_10">
-        <color rgba="0.6 0.75 0.95 0.3" />
+        <color rgba="1 0 0 1.0" />
       </material>
     </visual>
   </link>
+
   <link name="seg_5">
     <inertial>
       <origin xyz="0 0 0.0075327432" rpy="0 0 0" />
@@ -83,14 +94,16 @@
       <inertia ixx="9.36393481e-07" ixy="0" ixz="0" iyy="9.36393481e-07" iyz="0" izz="1.42284419e-06" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0.0075327432" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="meshes/seg_5.stl" scale="0.001 0.001 0.001" /></geometry>
+        <mesh filename="meshes/seg_5.stl" scale="0.001 0.001 0.001" />
+      </geometry>
       <material name="mat_11">
-        <color rgba="0.2 0.7 0.2 0.3" />
+        <color rgba="0 0 1 1.0" />
       </material>
     </visual>
   </link>
+
   <link name="seg_6">
     <inertial>
       <origin xyz="0 0 0.00823873862" rpy="0 0 0" />
@@ -98,14 +111,16 @@
       <inertia ixx="1.465535e-06" ixy="0" ixz="0" iyy="1.465535e-06" iyz="0" izz="2.22687149e-06" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0.00823873862" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="meshes/seg_6.stl" scale="0.001 0.001 0.001" /></geometry>
+        <mesh filename="meshes/seg_6.stl" scale="0.001 0.001 0.001" />
+      </geometry>
       <material name="mat_12">
-        <color rgba="0.6 0.75 0.95 0.3" />
+        <color rgba="1 0 0 1.0" />
       </material>
     </visual>
   </link>
+
   <link name="seg_7">
     <inertial>
       <origin xyz="0 0 0.00901090243" rpy="0 0 0" />
@@ -113,14 +128,16 @@
       <inertia ixx="2.29368623e-06" ixy="0" ixz="0" iyy="2.29368623e-06" iyz="0" izz="3.48524224e-06" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0.00901090243" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="meshes/seg_7.stl" scale="0.001 0.001 0.001" /></geometry>
+        <mesh filename="meshes/seg_7.stl" scale="0.001 0.001 0.001" />
+      </geometry>
       <material name="mat_13">
-        <color rgba="0.2 0.7 0.2 0.3" />
+        <color rgba="0 0 1 1.0" />
       </material>
     </visual>
   </link>
+
   <link name="seg_8">
     <inertial>
       <origin xyz="0 0 0.00985543617" rpy="0 0 0" />
@@ -128,14 +145,16 @@
       <inertia ixx="3.58981294e-06" ixy="0" ixz="0" iyy="3.58981294e-06" iyz="0" izz="5.45469888e-06" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0.00985543617" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="meshes/seg_8.stl" scale="0.001 0.001 0.001" /></geometry>
+        <mesh filename="meshes/seg_8.stl" scale="0.001 0.001 0.001" />
+      </geometry>
       <material name="mat_14">
-        <color rgba="0.6 0.75 0.95 0.3" />
+        <color rgba="1 0 0 1.0" />
       </material>
     </visual>
   </link>
+
   <link name="seg_9">
     <inertial>
       <origin xyz="0 0 0.0107791226" rpy="0 0 0" />
@@ -143,14 +162,16 @@
       <inertia ixx="5.61836088e-06" ixy="0" ixz="0" iyy="5.61836088e-06" iyz="0" izz="8.53706511e-06" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0.0107791226" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="meshes/seg_9.stl" scale="0.001 0.001 0.001" /></geometry>
+        <mesh filename="meshes/seg_9.stl" scale="0.001 0.001 0.001" />
+      </geometry>
       <material name="mat_15">
-        <color rgba="0.2 0.7 0.2 0.3" />
+        <color rgba="0 0 1 1.0" />
       </material>
     </visual>
   </link>
+
   <link name="seg_10">
     <inertial>
       <origin xyz="0 0 0.0117893802" rpy="0 0 0" />
@@ -158,14 +179,16 @@
       <inertia ixx="8.79320998e-06" ixy="0" ixz="0" iyy="8.79320998e-06" iyz="0" izz="1.3361229e-05" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0.0117893802" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="meshes/seg_10.stl" scale="0.001 0.001 0.001" /></geometry>
+        <mesh filename="meshes/seg_10.stl" scale="0.001 0.001 0.001" />
+      </geometry>
       <material name="mat_16">
-        <color rgba="0.6 0.75 0.95 0.3" />
+        <color rgba="1 0 0 1.0" />
       </material>
     </visual>
   </link>
+
   <link name="seg_11">
     <inertial>
       <origin xyz="0 0 0.0128943228" rpy="0 0 0" />
@@ -173,14 +196,16 @@
       <inertia ixx="1.37621174e-05" ixy="0" ixz="0" iyy="1.37621174e-05" iyz="0" izz="2.09114534e-05" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0.0128943228" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="meshes/seg_11.stl" scale="0.001 0.001 0.001" /></geometry>
+        <mesh filename="meshes/seg_11.stl" scale="0.001 0.001 0.001" />
+      </geometry>
       <material name="mat_17">
-        <color rgba="0.2 0.7 0.2 0.3" />
+        <color rgba="0 0 1 1.0" />
       </material>
     </visual>
   </link>
+
   <link name="seg_12">
     <inertial>
       <origin xyz="0 0 0.0141028244" rpy="0 0 0" />
@@ -188,14 +213,16 @@
       <inertia ixx="2.15388777e-05" ixy="0" ixz="0" iyy="2.15388777e-05" iyz="0" izz="3.27281933e-05" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0.0141028244" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="meshes/seg_12.stl" scale="0.001 0.001 0.001" /></geometry>
+        <mesh filename="meshes/seg_12.stl" scale="0.001 0.001 0.001" />
+      </geometry>
       <material name="mat_18">
-        <color rgba="0.6 0.75 0.95 0.3" />
+        <color rgba="1 0 0 1.0" />
       </material>
     </visual>
   </link>
+
   <link name="seg_-1">
     <inertial>
       <origin xyz="0 0 0.0154245912" rpy="0 0 0" />
@@ -203,108 +230,123 @@
       <inertia ixx="3.37101653e-05" ixy="0" ixz="0" iyy="3.37101653e-05" iyz="0" izz="5.12223907e-05" />
     </inertial>
     <visual>
-      <origin xyz="0 0 0.0154245912" rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="meshes/seg_-1.stl" scale="0.001 0.001 0.001" /></geometry>
+        <mesh filename="meshes/seg_-1.stl" scale="0.001 0.001 0.001" />
+      </geometry>
       <material name="mat_19">
-        <color rgba="0.2 0.7 0.2 0.3" />
+        <color rgba="0 0 1 1.0" />
       </material>
     </visual>
   </link>
+
   <joint name="fixed_root" type="fixed">
     <parent link="base_link" />
     <child link="seg_-1" />
     <origin xyz="0 0 0" rpy="0 0 0" />
   </joint>
+
   <joint name="j_12" type="revolute">
     <parent link="seg_-1" />
     <child link="seg_12" />
-    <origin xyz="0 0 0.0308491824" rpy="0 0 0" />
+    <origin xyz="0 0 0.05545" rpy="0 0 0" />
     <axis xyz="0 1 0" />
     <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0" />
   </joint>
+
   <joint name="j_11" type="revolute">
     <parent link="seg_12" />
     <child link="seg_11" />
-    <origin xyz="0 0 0.0282056489" rpy="0 0 0" />
+    <origin xyz="0 0 0.050545" rpy="0 0 0" />
     <axis xyz="0 1 0" />
     <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0" />
   </joint>
+
   <joint name="j_10" type="revolute">
     <parent link="seg_11" />
     <child link="seg_10" />
-    <origin xyz="0 0 0.0257886455" rpy="0 0 0" />
+    <origin xyz="0 0 0.046074" rpy="0 0 0" />
     <axis xyz="0 1 0" />
     <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0" />
   </joint>
+
   <joint name="j_9" type="revolute">
     <parent link="seg_10" />
     <child link="seg_9" />
-    <origin xyz="0 0 0.0235787605" rpy="0 0 0" />
+    <origin xyz="0 0 0.041999" rpy="0 0 0" />
     <axis xyz="0 1 0" />
     <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0" />
   </joint>
+
   <joint name="j_8" type="revolute">
     <parent link="seg_9" />
     <child link="seg_8" />
-    <origin xyz="0 0 0.0215582452" rpy="0 0 0" />
+    <origin xyz="0 0 0.038284" rpy="0 0 0" />
     <axis xyz="0 1 0" />
     <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0" />
   </joint>
+
   <joint name="j_7" type="revolute">
     <parent link="seg_8" />
     <child link="seg_7" />
-    <origin xyz="0 0 0.0197108723" rpy="0 0 0" />
+    <origin xyz="0 0 0.034897" rpy="0 0 0" />
     <axis xyz="0 1 0" />
     <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0" />
   </joint>
+
   <joint name="j_6" type="revolute">
     <parent link="seg_7" />
     <child link="seg_6" />
-    <origin xyz="0 0 0.0180218049" rpy="0 0 0" />
+    <origin xyz="0 0 0.031811" rpy="0 0 0" />
     <axis xyz="0 1 0" />
     <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0" />
   </joint>
+
   <joint name="j_5" type="revolute">
     <parent link="seg_6" />
     <child link="seg_5" />
-    <origin xyz="0 0 0.0164774772" rpy="0 0 0" />
+    <origin xyz="0 0 0.028997" rpy="0 0 0" />
     <axis xyz="0 1 0" />
     <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0" />
   </joint>
+
   <joint name="j_4" type="revolute">
     <parent link="seg_5" />
     <child link="seg_4" />
-    <origin xyz="0 0 0.0150654864" rpy="0 0 0" />
+    <origin xyz="0 0 0.026432" rpy="0 0 0" />
     <axis xyz="0 1 0" />
     <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0" />
   </joint>
+
   <joint name="j_3" type="revolute">
     <parent link="seg_4" />
     <child link="seg_3" />
-    <origin xyz="0 0 0.0137744921" rpy="0 0 0" />
+    <origin xyz="0 0 0.024094" rpy="0 0 0" />
     <axis xyz="0 1 0" />
     <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0" />
   </joint>
+
   <joint name="j_2" type="revolute">
     <parent link="seg_3" />
     <child link="seg_2" />
-    <origin xyz="0 0 0.012594126" rpy="0 0 0" />
+    <origin xyz="0 0 0.021963" rpy="0 0 0" />
     <axis xyz="0 1 0" />
     <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0" />
   </joint>
+
   <joint name="j_1" type="revolute">
     <parent link="seg_2" />
     <child link="seg_1" />
-    <origin xyz="0 0 0.0115149079" rpy="0 0 0" />
+    <origin xyz="0 0 0.02002" rpy="0 0 0" />
     <axis xyz="0 1 0" />
     <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0" />
   </joint>
+
   <joint name="j_0" type="revolute">
     <parent link="seg_1" />
     <child link="seg_0" />
-    <origin xyz="0 0 0.0105281705" rpy="0 0 0" />
+    <origin xyz="0 0 0.018249" rpy="0 0 0" />
     <axis xyz="0 1 0" />
     <limit lower="-0.5200823965970571" upper="0.5200823965970571" effort="1.0" velocity="1.0" />
   </joint>
-  </robot>
+</robot>
