@@ -112,11 +112,3 @@ This sends a simple sinusoidal motion at ~50 Hz via `POST /state`.
 └── tools/
     └── demo_client.py  # sends joint states via REST
 ```
-
-## Notes / limitations
-
-- Visual extraction currently supports **URDF box visuals**. If your URDF uses mesh visuals, you can either:
-  1) extend `URDFModel.extract_visuals()` + `ViserView.create_link_visuals()` to load meshes, or
-  2) switch to `viser.extras.ViserUrdf` (viser provides a URDF helper that can load meshes).
-
-- Joint limits are parsed from URDF XML and assumed to be **radians** (URDF standard).
